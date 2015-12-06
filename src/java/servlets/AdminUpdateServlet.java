@@ -29,7 +29,7 @@ public class AdminUpdateServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
         
         String woodId = request.getParameter("Id");
-        String woodtitle= request.getParameter("Title");
+        String woodtitle= request.getParameter("title");
         if (woodId != null) {
             try {
                 if(bookDB.deleteBook(woodId))
