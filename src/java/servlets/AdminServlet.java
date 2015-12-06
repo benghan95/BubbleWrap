@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
-        try {
-            out.println("<html><head><title>Bookstore Admin Module</title></head><body>");
+        
+        try 
+        {
+            out.println("<html><head><title>BUBBLEWRAP Admin Module</title></head><body>");
             getServletContext().getRequestDispatcher("/Banner").include(request, response);
             out.println("<p><strong><a href='"+contextPath+ "/logout.jsp'>Log out</a></strong>");
             out.println("<p><h1>Administrator Options:</h1>");
-            out.println("<p><strong><a href='"+contextPath+ "/AdminDelete'>Delete Book</a></strong>");
-            out.println("<p><strong><a href='"+contextPath+ "/AdminBookEntry?Mode=New'>Add New Book</a></strong>");
-            out.println("<p><strong><a href='"+contextPath+ "/AdminUpdate'>Update Existing Book</a></strong>");
+            out.println("<p><strong><a href='"+contextPath+ "/AdminDelete'>Delete Stock</a></strong>");
+            out.println("<p><strong><a href='"+contextPath+ "/AdminBookEntry?Mode=New'>Add New Stock</a></strong>");
+            out.println("<p><strong><a href='"+contextPath+ "/AdminUpdate'>Update Stock</a></strong>");
             out.println("</body></html>");
         } finally { 
             out.close();

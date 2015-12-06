@@ -20,7 +20,8 @@ public class Authentication extends HttpServlet{
     HttpSession session = request.getSession(); 
     Connection connection=null;
     response.setContentType("text/html");
-    try {
+    try 
+    {
         // Load the database driver
         Class.forName("com.mysql.jdbc.Driver");
  

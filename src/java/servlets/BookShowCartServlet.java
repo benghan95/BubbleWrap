@@ -29,6 +29,7 @@ public class BookShowCartServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
         String bookId = request.getParameter("Remove");
         BookDetails bd;
+        
         if (bookId != null) {
             try {
                 bd = bookDB.getBookDetails(bookId);

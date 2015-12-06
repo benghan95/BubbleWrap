@@ -45,7 +45,7 @@ public class BookReceiptServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
 
         if (orderCompleted) {
-            out.println("<h3>"+request.getParameter("cardname")+"Thank you for purchasing your books from us.");
+            out.println("<h3>"+request.getParameter("cardname")+"Thank you for purchasing your wood from us.");
         } else {
             out.println("<h3>Your order could not be completed due to insufficient inventory.");
         }

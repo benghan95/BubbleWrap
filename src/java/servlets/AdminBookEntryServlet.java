@@ -9,15 +9,16 @@ import database.*;
 public class AdminBookEntryServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
-    public void init() throws ServletException {
+    public void init() throws ServletException 
+    {
         bookDB = (BookDBAO) getServletContext().getAttribute("bookDB");
         if (bookDB == null) throw new UnavailableException("Couldn't get database.");
     }
     @Override
     public void destroy() {bookDB = null;}
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+    {
         doGet(request,response);
     }
     private String getParamWithoutNull(HttpServletRequest request,String param){
@@ -63,12 +64,14 @@ public class AdminBookEntryServlet extends HttpServlet {
        return showMsgInErrIcon(s);
     }   
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException 
+    {
         String contextPath=request.getContextPath();
         String sMode=getParamWithoutNull(request,"Mode");
         String sOperation=getParamWithoutNull(request,"Operation");
-        if(sOperation.equals("Cancel")){
+        
+        if(sOperation.equals("Cancel"))
+        {
            response.sendRedirect(contextPath+(sMode.equals("New")?"/Admin":"/AdminUpdate"));
            return;
         }
@@ -83,7 +86,7 @@ public class AdminBookEntryServlet extends HttpServlet {
         String sPriceErr="";
         String sDescriptionErr="";
         String sInventoryErr="";
-        String sHeader=sMode.equals("New")?"New Book":"Update Book";
+        String sHeader=sMode.equals("New")?"New Wood":"Update Wood";
         String sButton=sMode.equals("New")?"Add":"Update";
  
         if(sOperation.equals("")){
@@ -136,13 +139,13 @@ public class AdminBookEntryServlet extends HttpServlet {
             "  </head>"+
             "  <body>"+
             "  <form method='get'>"+
-            "    <table border='1' bgcolor='pink'>"+
-            "       <tr><th><img src='images/books.jpg'/></th><th colspan=3' bgcolor='green'><h2>"+sHeader+" Entry</h2></th></tr>"+
-            "       <tr><td rowspan='8' bgcolor='black'>&nbsp;</td><td title='Not more than 4 characters'>ID</td><td bgcolor='red'>&nbsp;</td><td><input type='text' name='Id' value='"+sId+"' size='4'"+(sMode.equals("Update")?" disabled='disabled'":"")+"'/>"+sIdErr+"</td></tr>"+
-            "       <tr><td  title='Not more that 64 characters'>TITLE</td><td bgcolor='red'>&nbsp;</td><td><input type='text' name='Title' value='"+sTitle+"' size='64' />"+sTitleErr+"</td></tr>"+
-            "       <tr><td>PRICE</td><td bgcolor='red'>&nbsp;</td><td><input type='text' name='Price' value='"+sPrice+"' />"+sPriceErr+"</td></tr>"+
+            "    <table border='1' bgcolor='Beige'>"+
+            "       <tr><th><img src='images/logo.jpg'/></th><th colspan=3' bgcolor='Beige'><h2>"+sHeader+" Entry</h2></th></tr>"+
+            "       <tr><td rowspan='8' bgcolor='beige'>&nbsp;</td><td title='Not more than 4 characters'>ID</td><td bgcolor='cadetblue'>&nbsp;</td><td><input type='text' name='Id' value='"+sId+"' size='4'"+(sMode.equals("Update")?" disabled='disabled'":"")+"'/>"+sIdErr+"</td></tr>"+
+            "       <tr><td  title='Not more that 64 characters'>TITLE</td><td bgcolor='cadetblue'>&nbsp;</td><td><input type='text' name='Title' value='"+sTitle+"' size='64' />"+sTitleErr+"</td></tr>"+
+            "       <tr><td>PRICE</td><td bgcolor='cadetblue'>&nbsp;</td><td><input type='text' name='Price' value='"+sPrice+"' />"+sPriceErr+"</td></tr>"+
             "       <tr><td colspan='2' title='Not more that 128 characters'>DESC.</td><td><textarea name='Description' rows='3' cols='40'>"+sDescription+"</textarea>"+sDescriptionErr+"</td></tr>"+
-            "       <tr><td>INVENTORY</td><td bgcolor='red'>&nbsp;</td><td><input type='text' name='Inventory' value='"+sInventory+"' size='5' />"+sInventoryErr+"</td></tr>"+
+            "       <tr><td>INVENTORY</td><td bgcolor='cadetblue'>&nbsp;</td><td><input type='text' name='Inventory' value='"+sInventory+"' size='5' />"+sInventoryErr+"</td></tr>"+
             "       <tr><th colspan='3'><input type='submit' name='Operation' value='"+sButton+"'/><input type='submit' name='Operation' value='Cancel'/><input type='hidden' name='Mode' value='"+sMode+"'/><input type='hidden' name='ID' value='"+sId+"'/></th></tr>"+
             "    </table>"+
             "</form>"+

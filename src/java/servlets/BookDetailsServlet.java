@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import database.*;
 import exception.*;
+
 public class BookDetailsServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
@@ -20,7 +21,7 @@ public class BookDetailsServlet extends HttpServlet {
         response.setBufferSize(8192);
         PrintWriter out = response.getWriter();
         String bookId = request.getParameter("Id");
-        out.println("<html><head><title>WOOD Details:" +bookId+ "</title></head><body>");
+        out.println("<html><head><title> WOOD Details:" +bookId+ "</title></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
         if (bookId != null) {
             try {
@@ -30,8 +31,6 @@ public class BookDetailsServlet extends HttpServlet {
                     "<tr><th colspan='2'>WOOD Information</th><tr>"+
                     "<tr><td>ID</td><td>"+bookId+"</td></tr>"+
                     "<tr><td>Title</td><td>"+bd.getTitle()+"</td></tr>"+
-                    /*"<tr><td>Author</td><td>"+bd.getAuthor()+"</td></tr>"+
-                    "<tr><td>Year</td><td>"+bd.getYear()+"</td></tr>"+*/
                     "<tr><td>Price</td><td>$&nbsp;"+bd.getPrice()+"</td></tr></table>");
             // Go back to catalog
             out.println("<p> &nbsp; <p><strong><a href='" +

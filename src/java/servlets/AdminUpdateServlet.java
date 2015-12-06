@@ -27,14 +27,16 @@ public class AdminUpdateServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><head><title>Book Catalog</title></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
-        String bookId = request.getParameter("Id");
-        if (bookId != null) {
+        
+        String woodId = request.getParameter("Id");
+        String woodtitle= request.getParameter("Title");
+        if (woodId != null) {
             try {
-                if(bookDB.deleteBook(bookId))
-                  out.println("<p><h3><font color='red'>You updated Book with ID=<i>" + bookId +
-                          "</i></font></h3>");
+                if(bookDB.deleteBook(woodId))
+                  out.println("<p><h3><font color='red'>You updated Plank with ID=<i>" + woodId +
+                          "</i></font></h3>" + "<p><h3><font color='red'> Title is " + woodtitle + "</i></font></h3>");
                 else
-                  out.println("<p><h3><font color='red'>Cannot update Book with ID=<i>" + bookId +
+                  out.println("<p><h3><font color='red'>Cannot update Book with ID=<i>" + woodId +
                           "</i></font></h3>");                      
             } catch (BookNotFoundException ex) {
                 response.reset();
@@ -54,13 +56,13 @@ public class AdminUpdateServlet extends HttpServlet {
             Collection coll = bookDB.getBooks();
             Iterator i = coll.iterator();
             while (i.hasNext()) {
-                BookDetails book = (BookDetails) i.next();
-                bookId = book.getId();
+                BookDetails plank = (BookDetails) i.next();
+                woodId = plank.getId();
                 //Print out info on each book in its own two rows
-                out.println("<tr><td bgcolor='#ffffaa'><strong>"+book.getTitle()+"&nbsp;</strong></td>" +
-                    "<td bgcolor='#ffffaa' rowspan='2'>$&nbsp;"+ book.getPrice() +
+                out.println("<tr><td bgcolor='#ffffaa'><strong>"+plank.getTitle()+"&nbsp;</strong></td>" +
+                    "<td bgcolor='#ffffaa' rowspan='2'>$&nbsp;"+ plank.getPrice() +
                     "&nbsp; </td><td bgcolor='#ffffaa' rowspan='2'><a href='" +
-                    response.encodeURL(contextPath+"/AdminBookEntry?Mode=Update&ID=" + bookId) + 
+                    response.encodeURL(contextPath+"/AdminBookEntry?Mode=Update&ID=" + woodId) + 
                     "'> &nbsp;Update&nbsp;</a></td></tr>" +
                     "<tr><td bgcolor='white'>&nbsp; &nbsp;&nbsp;</td></tr>");
             }

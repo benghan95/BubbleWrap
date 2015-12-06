@@ -27,11 +27,11 @@ public class BookCatalogServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><head><title>Book Catalog</title></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
-        String bookId = request.getParameter("Id");
-        if (bookId != null) {
+        String woodId = request.getParameter("Id");
+        if (woodId != null) {
             try {
-                BookDetails book = bookDB.getBookDetails(bookId);
-                cart.add(bookId, book);
+                BookDetails book = bookDB.getBookDetails(woodId);
+                cart.add(woodId, book);
                 out.println("<p><h3><font color='red'>You added <i>" + book.getTitle() +
                     "</i> to your shopping cart.</font></h3>");
             } catch (BookNotFoundException ex) {
@@ -52,17 +52,17 @@ public class BookCatalogServlet extends HttpServlet {
             Collection coll = bookDB.getBooks();
             Iterator i = coll.iterator();
             while (i.hasNext()) {
-                BookDetails book = (BookDetails) i.next();
-                bookId = book.getId();
+                BookDetails wood = (BookDetails) i.next();
+                woodId = wood.getId();
                 //Print out info on each book in its own two rows
-                out.println("<tr><td bgcolor='#ffffaa'><a href='" +
-                    response.encodeURL(contextPath+"/BookDetails?Id=" + bookId) + 
-                    "'> <strong>" +book.getTitle()+"&nbsp;</strong></a></td>" +
-                    "<td bgcolor='#ffffaa' rowspan='2'>$&nbsp;" + book.getPrice() +
-                    "&nbsp; </td><td bgcolor='#ffffaa' rowspan='2'><a href='" +
-                    response.encodeURL(contextPath+"/BookCatalog?Id=" + bookId) + 
+                out.println("<tr><td bgcolor='ivory'><a href='" +
+                    response.encodeURL(contextPath+"/BookDetails?Id=" + woodId) + 
+                    "'> <strong>" +wood.getTitle()+"&nbsp;</strong></a></td>" +
+                    "<td bgcolor='ivory' rowspan='2'>$&nbsp;" + wood.getPrice() +
+                    "&nbsp; </td><td bgcolor='ivory' rowspan='2'><a href='" +
+                    response.encodeURL(contextPath+"/BookCatalog?Id=" + woodId) + 
                     "'> &nbsp;Add to Cart&nbsp;</a></td></tr>" +
-                    "<tr><td bgcolor='white'>&nbsp; &nbsp;About: &nbsp;<em>" + book.getDescription()+ "</td></tr>");
+                    "<tr><td bgcolor='floralwhite'>&nbsp; &nbsp;About: &nbsp;<em>" + wood.getDescription()+ "</td></tr>");
             }
         } catch (BooksNotFoundException ex) {
             response.reset();
@@ -72,5 +72,5 @@ public class BookCatalogServlet extends HttpServlet {
         out.close();
     }
     @Override
-    public String getServletInfo() {return "Adds books to the user's shopping cart and prints the catalog.";}
+    public String getServletInfo() {return "Adds wood to the user's shopping cart and prints the catalog.";}
 }

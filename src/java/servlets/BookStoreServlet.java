@@ -17,16 +17,19 @@ public class BookStoreServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
+        
         response.setContentType("text/html");
         response.setBufferSize(8192);
         String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
         out.println("<html><head><title>Amazon.COM</title></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
+        
         try {
             String bookOfTheDayID="101";
             bookDB = (BookDBAO) getServletContext().getAttribute("bookDB");            
             BookDetails bd = bookDB.getBookDetails(bookOfTheDayID);
+            
             out.println("<b>Book of the day</b>:<a href='" +
                 response.encodeURL(contextPath+"/BookDetails?Id="+bookOfTheDayID+"'>") + 
                 bd.getTitle() +"</a><p><a href=\'" +response.encodeURL(contextPath+ "/BookCatalog") +

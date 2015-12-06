@@ -11,22 +11,22 @@ public class ShoppingCart {
         items = new HashMap();
     }
 
-    public synchronized void add(String bookId, BookDetails book) {
-        if (items.containsKey(bookId)) {
-            ShoppingCartItem scitem = (ShoppingCartItem) items.get(bookId);
+    public synchronized void add(String woodId, BookDetails plank) {
+        if (items.containsKey(woodId)) {
+            ShoppingCartItem scitem = (ShoppingCartItem) items.get(woodId);
             scitem.incrementQuantity();
         } else {
-            ShoppingCartItem newItem = new ShoppingCartItem(book);
-            items.put(bookId, newItem);
+            ShoppingCartItem newItem = new ShoppingCartItem(plank);
+            items.put(woodId, newItem);
         }
     }
 
-    public synchronized void remove(String bookId) {
-        if (items.containsKey(bookId)) {
-            ShoppingCartItem scitem = (ShoppingCartItem) items.get(bookId);
+    public synchronized void remove(String woodId) {
+        if (items.containsKey(woodId)) {
+            ShoppingCartItem scitem = (ShoppingCartItem) items.get(woodId);
             scitem.decrementQuantity();
             if (scitem.getQuantity() <= 0) {
-                items.remove(bookId);
+                items.remove(woodId);
             }
         }
     }
