@@ -62,7 +62,7 @@ public class AdminDeleteServlet extends HttpServlet {
                     "&nbsp; </td><td bgcolor='#ffffaa' rowspan='2'><a href='" +
                     response.encodeURL(contextPath+"/AdminDelete?Id=" + bookId) + 
                     "'> &nbsp;Delete&nbsp;</a></td></tr>" +
-                    /*"<tr><td bgcolor='white'>&nbsp; &nbsp;by&nbsp;<em>" + book.getAuthor()+*/"</em></td></tr>");
+                    "<tr><td bgcolor='white'>&nbsp; &nbsp;&nbsp;</td></tr>");
             }
         } catch (BooksNotFoundException ex) {
             response.reset();

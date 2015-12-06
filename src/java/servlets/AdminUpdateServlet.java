@@ -62,7 +62,7 @@ public class AdminUpdateServlet extends HttpServlet {
                     "&nbsp; </td><td bgcolor='#ffffaa' rowspan='2'><a href='" +
                     response.encodeURL(contextPath+"/AdminBookEntry?Mode=Update&ID=" + bookId) + 
                     "'> &nbsp;Update&nbsp;</a></td></tr>" +
-                    /*"<tr><td bgcolor='white'>&nbsp; &nbsp;by&nbsp;<em>" + book.getAuthor()+*/"</em></td></tr>");
+                    "<tr><td bgcolor='white'>&nbsp; &nbsp;&nbsp;</td></tr>");
             }
         } catch (BooksNotFoundException ex) {
             response.reset();

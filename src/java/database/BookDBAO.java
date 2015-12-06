@@ -82,7 +82,7 @@ public class BookDBAO {
     public boolean deleteBook(String bookId)throws BookNotFoundException {
         try {
             getConnection();
-            PreparedStatement prepStmt = con.prepareStatement("Delete from books where id = ? ");
+            PreparedStatement prepStmt = con.prepareStatement("Delete from woodstock where id = ? ");
             prepStmt.setString(1, bookId);
             prepStmt.executeUpdate();
             releaseConnection();
@@ -97,7 +97,7 @@ public class BookDBAO {
             throws NewBookException{
         try {
             getConnection();
-            PreparedStatement prepStmt = con.prepareStatement("INSERT INTO books VALUES(?,?,?,?,?)");
+            PreparedStatement prepStmt = con.prepareStatement("INSERT INTO woodstock VALUES(?,?,?,?,?)");
             prepStmt.setString(1,id);
             prepStmt.setString(2,title);
             
@@ -140,7 +140,7 @@ public class BookDBAO {
     }
     private void buyBook(String bookId, int quantity) throws OrderException {
         try {
-            PreparedStatement prepStmt = con.prepareStatement("select * from books where id = ? ");
+            PreparedStatement prepStmt = con.prepareStatement("select * from woodstock where id = ? ");
             prepStmt.setString(1, bookId);
             ResultSet rs = prepStmt.executeQuery();
             if (rs.next()) {
