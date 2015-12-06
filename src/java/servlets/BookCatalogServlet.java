@@ -62,7 +62,7 @@ public class BookCatalogServlet extends HttpServlet {
                     "&nbsp; </td><td bgcolor='#ffffaa' rowspan='2'><a href='" +
                     response.encodeURL(contextPath+"/BookCatalog?Id=" + bookId) + 
                     "'> &nbsp;Add to Cart&nbsp;</a></td></tr>" +
-                    "<tr><td bgcolor='white'>&nbsp; &nbsp;&nbsp;</td></tr>");
+                    "<tr><td bgcolor='white'>&nbsp; &nbsp;About: &nbsp;<em>" + book.getDescription()+ "</td></tr>");
             }
         } catch (BooksNotFoundException ex) {
             response.reset();
