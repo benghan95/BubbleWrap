@@ -59,7 +59,7 @@ public class BookDBAO {
     public BookDetails getBookDetails(String bookId)throws BookNotFoundException {
         try {
             getConnection();
-            PreparedStatement prepStmt = con.prepareStatement("select * from books where id = ? ");
+            PreparedStatement prepStmt = con.prepareStatement("select * from woodstock where id = ? ");
             prepStmt.setString(1, bookId);
             ResultSet rs = prepStmt.executeQuery();
             if (rs.next()) {
