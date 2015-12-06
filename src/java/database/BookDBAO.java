@@ -41,7 +41,7 @@ public class BookDBAO {
         books = new ArrayList();
         try {
             getConnection();
-            PreparedStatement prepStmt = con.prepareStatement("select * from books");
+            PreparedStatement prepStmt = con.prepareStatement("select * from woodstock");
             ResultSet rs = prepStmt.executeQuery();
             while (rs.next()) {
                 if (rs.getInt(5) > 0) {
