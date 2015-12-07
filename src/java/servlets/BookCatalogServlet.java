@@ -58,7 +58,7 @@ public class BookCatalogServlet extends HttpServlet {
                 out.println("<tr><td bgcolor='ivory'><a href='" +
                     response.encodeURL(contextPath+"/BookDetails?Id=" + woodId) + 
                     "'> <strong>" +wood.getTitle()+"&nbsp;</strong></a></td>" +
-                    "<td bgcolor='ivory' rowspan='2'>$&nbsp;" + wood.getPrice() +
+                    "<td bgcolor='ivory' rowspan='2'> USD&nbsp;" + wood.getPrice() +
                     "&nbsp; </td><td bgcolor='ivory' rowspan='2'><a href='" +
                     response.encodeURL(contextPath+"/BookCatalog?Id=" + woodId) + 
                     "'> &nbsp;Add to Cart&nbsp;</a></td></tr>" +
