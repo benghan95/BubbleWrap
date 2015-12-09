@@ -1,6 +1,6 @@
 import database.BookDBAO;
 import javax.servlet.*;
-public final class AmazonContextListener implements ServletContextListener {
+public final class ContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event)  {
         ServletContext context = event.getServletContext();
          try {

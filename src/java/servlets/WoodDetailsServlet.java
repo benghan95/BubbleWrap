@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import database.*;
 import exception.*;
 
-public class BookDetailsServlet extends HttpServlet {
+public class WoodDetailsServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
     public void init() throws ServletException {

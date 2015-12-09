@@ -21,7 +21,7 @@ public class BannerServlet extends HttpServlet {
             "<table border='1' width='100%'>"+
               "<tr><th width='100'><img src='"+response.encodeURL(path +"/images/logo.jpg") +"'/></th>"+
                      "<th>BUBBLEWRAP.COM</th>"+
-                     "<th width='100'><select name='Currency'>\n" +
+                     "<th width='100'><select name='currency'>\n" +
                         "  <option value='USD' selected>USD</option>\n" +
                         "  <option value='MYR'>MYR</option>\n" +
                         "  <option value='AUD'>AUD</option>\n" +

@@ -3,15 +3,15 @@
     <display-name>Amazon</display-name>
     <listener>
         <description>ServletContextListener</description>
-        <listener-class>AmazonContextListener</listener-class>
+        <listener-class>ContextListener</listener-class>
     </listener>
     <listener>
         <description>HttpSessionListener</description>
-        <listener-class>AmazonSessionListener</listener-class>
+        <listener-class>SessionListener</listener-class>
     </listener>
     <servlet>
-        <servlet-name>BookStoreServlet</servlet-name>
-        <servlet-class>servlets.BookStoreServlet</servlet-class>
+        <servlet-name>WoodStoreServlet</servlet-name>
+        <servlet-class>servlets.WoodStoreServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BannerServlet</servlet-name>
@@ -19,15 +19,15 @@
     </servlet>
     <servlet>
         <servlet-name>BookDetailsServlet</servlet-name>
-        <servlet-class>servlets.BookDetailsServlet</servlet-class>
+        <servlet-class>servlets.WoodDetailsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BookCatalogServlet</servlet-name>
-        <servlet-class>servlets.BookCatalogServlet</servlet-class>
+        <servlet-class>servlets.WoodCatalogServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BookShowCartServlet</servlet-name>
-        <servlet-class>servlets.BookShowCartServlet</servlet-class>
+        <servlet-class>servlets.WoodShowCartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>BookCashierServlet</servlet-name>
@@ -106,7 +106,7 @@
         <url-pattern>/Authentication</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>BookStoreServlet</servlet-name>
+        <servlet-name>WoodStoreServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

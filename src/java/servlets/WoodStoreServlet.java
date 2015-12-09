@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import database.*;
 import exception.*;
 
-public class BookStoreServlet extends HttpServlet {
+public class WoodStoreServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
     public void init() throws ServletException {
@@ -22,9 +22,9 @@ public class BookStoreServlet extends HttpServlet {
         response.setBufferSize(8192);
         String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Amazon.COM</title></head><body>");
+        out.println("<html><head><title>BubbleWrap.COM</title></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
-        
+        String currency = request.getParameter("currency");
         try {
             String bookOfTheDayID="101";
             bookDB = (BookDBAO) getServletContext().getAttribute("bookDB");            
@@ -43,5 +43,5 @@ public class BookStoreServlet extends HttpServlet {
        }
     }
     @Override
-    public String getServletInfo() {return "The Amazon.COM BookStore Main Servlet";}
+    public String getServletInfo() {return "The BubbleWrap.com Wood Store Main Servlet";}
 }

@@ -6,8 +6,10 @@ import javax.servlet.http.*;
 import database.*;
 import cart.*;
 import exception.*;
+import java.rmi.*;
+import java.net.*;
 
-public class BookCatalogServlet extends HttpServlet {
+public class WoodCatalogServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
     public void init() throws ServletException {
@@ -25,7 +27,17 @@ public class BookCatalogServlet extends HttpServlet {
         response.setBufferSize(8192);
         String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
-        out.println("<html><head><title>Book Catalog</title></head><body>");
+        out.println("<!DOCTYPE html><html><head><title>Book Catalog</title>"
+                + "<script type=\"text/javascript\">\n"+
+                    "onunload = function(){\n" +
+                    "var foo = document.getElementById('foo');\n" +
+                    "self.name = 'fooidx' + foo.selectedIndex;\n" +
+                    "}\n" +
+                    "onload = function(){\n" +
+                    "var idx, foo = document.getElementById('foo');\n" +
+                    "foo.selectedIndex = (idx = self.name.split('fooidx')) ?	idx[1] : 0;\n" +
+                    "}\n" +
+                "</script></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
         String woodId = request.getParameter("Id");
         if (woodId != null) {
@@ -51,6 +63,24 @@ public class BookCatalogServlet extends HttpServlet {
         try {
             Collection coll = bookDB.getBooks();
             Iterator i = coll.iterator();
+            String currency = request.getParameter("currency");
+            
+            String sRMI = "rmi://localhost:1099/currencyexchange";
+            String currencyType = "SGD";
+            double exchangeRate = 0;
+            try {      
+                Currency calculator = (Currency) Naming.lookup(sRMI);
+                exchangeRate = calculator.getExchangeRate(currencyType);
+            }
+              catch (MalformedURLException ex) {
+                System.err.println(sRMI + " is not a valid RMI URL");
+            }
+              catch (RemoteException ex) {
+                System.err.println("Remote object threw exception " + ex);
+            }
+              catch (NotBoundException ex) {
+                System.err.println("Could not find the requested remote object on the server");
+            }
             while (i.hasNext()) {
                 BookDetails wood = (BookDetails) i.next();
                 woodId = wood.getId();
@@ -58,7 +88,7 @@ public class BookCatalogServlet extends HttpServlet {
                 out.println("<tr><td bgcolor='ivory'><a href='" +
                     response.encodeURL(contextPath+"/BookDetails?Id=" + woodId) + 
                     "'> <strong>" +wood.getTitle()+"&nbsp;</strong></a></td>" +
-                    "<td bgcolor='ivory' rowspan='2'> USD&nbsp;" + wood.getPrice() +
+                    "<td bgcolor='ivory' rowspan='2'> "+ currency + "&nbsp;" + wood.getPrice()*exchangeRate +
                     "&nbsp; </td><td bgcolor='ivory' rowspan='2'><a href='" +
                     response.encodeURL(contextPath+"/BookCatalog?Id=" + woodId) + 
                     "'> &nbsp;Add to Cart&nbsp;</a></td></tr>" +
