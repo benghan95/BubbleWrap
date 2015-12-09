@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import cart.*;
 
-public class BookCashierServlet extends HttpServlet {
+public class WoodCashierServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
@@ -17,16 +17,16 @@ public class BookCashierServlet extends HttpServlet {
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
          // Go back to catalog
          out.println("<p> &nbsp; <p><strong><a href='" +response.encodeURL(
-                 contextPath+"/BookCatalog") +"'>Back to Catalog</a>" );                
+                 contextPath+"/WoodCatalog") +"'>Back to Catalog</a>" );                
 
         // Print out the total and the form for the user
         out.println("<p>Your total purchase amount is:<strong>$&nbsp;" +
             cart.getTotal() + "</strong><p>To purchase the items in your shopping cart, please provide us with the following information:<form action='" +
-            response.encodeURL(contextPath+ "/BookReceipt") +
+            response.encodeURL(contextPath+ "/WoodReceipt") +
             "' method='post'><table summary='layout'><tr>" +
             "<td><strong>Name:</strong></td>" +
             "<td><input type='text' name='cardname'" +
-            "value='Tong Sam Pah' size='19'></td></tr>" + 
+            "value='Tee Ai Ven' size='19'></td></tr>" + 
             "<tr><td><strong>Credit Card Number:</strong></td>" +
             "<td><input type='text' name='cardnum' " +
             "value='xxxx xxxx xxxx xxxx' size='19'></td></tr>" +
@@ -36,6 +36,6 @@ public class BookCashierServlet extends HttpServlet {
     }
     @Override
     public String getServletInfo() {
-        return "Takes the user's name and credit card number so that the user can buy the books.";
+        return "Takes the user's name and credit card number so that the user can buy the woods.";
     }
 }

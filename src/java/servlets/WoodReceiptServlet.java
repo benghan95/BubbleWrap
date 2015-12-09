@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import cart.ShoppingCart;
 import database.*;
 
-public class BookReceiptServlet extends HttpServlet {
+public class WoodReceiptServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
     public void init() throws ServletException {
@@ -49,7 +49,7 @@ public class BookReceiptServlet extends HttpServlet {
         } else {
             out.println("<h3>Your order could not be completed due to insufficient inventory.");
         }
-        out.println("<p><strong><a href='" +response.encodeURL(contextPath+ "/Bookstore")+
+        out.println("<p><strong><a href='" +response.encodeURL(contextPath+ "/Woodstore")+
                 "'>Continue Shopping</a> &nbsp; &nbsp; &nbsp;</body></html>");
         out.close();
     }

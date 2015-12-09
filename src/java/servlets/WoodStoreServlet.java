@@ -31,8 +31,8 @@ public class WoodStoreServlet extends HttpServlet {
             BookDetails bd = bookDB.getBookDetails(bookOfTheDayID);
             
             out.println("<b>Book of the day</b>:<a href='" +
-                response.encodeURL(contextPath+"/BookDetails?Id="+bookOfTheDayID+"'>") + 
-                bd.getTitle() +"</a><p><a href=\'" +response.encodeURL(contextPath+ "/BookCatalog") +
+                response.encodeURL(contextPath+"/WoodDetails?Id="+bookOfTheDayID+"'>") + 
+                bd.getTitle() +"</a><p><a href=\'" +response.encodeURL(contextPath+ "/WoodCatalog") +
                 "'><b>Start Shopping</b></a></font><br/>");
         } catch (BookNotFoundException ex) {
              out.println("<center><h1>"+ex.getMessage()+"</h1></center>");

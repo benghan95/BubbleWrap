@@ -11,6 +11,7 @@ import java.net.*;
 
 public class WoodCatalogServlet extends HttpServlet {
     private BookDBAO bookDB;
+    private String currencyName;
     @Override
     public void init() throws ServletException {
         bookDB = (BookDBAO) getServletContext().getAttribute("bookDB");
@@ -27,15 +28,15 @@ public class WoodCatalogServlet extends HttpServlet {
         response.setBufferSize(8192);
         String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
-        out.println("<!DOCTYPE html><html><head><title>Book Catalog</title>"
+        out.println("<!DOCTYPE html><html><head><title>Wood Catalog</title>"
                 + "<script type=\"text/javascript\">\n"+
                     "onunload = function(){\n" +
-                    "var foo = document.getElementById('foo');\n" +
-                    "self.name = 'fooidx' + foo.selectedIndex;\n" +
+                    "var currency = document.getElementById('currency');\n" +
+                    "self.name = 'currencyidx' + currency.selectedIndex;\n" +
                     "}\n" +
                     "onload = function(){\n" +
-                    "var idx, foo = document.getElementById('foo');\n" +
-                    "foo.selectedIndex = (idx = self.name.split('fooidx')) ?	idx[1] : 0;\n" +
+                    "var idx, currency = document.getElementById('currency');\n" +
+                    "currency.selectedIndex = (idx = self.name.split('currencyidx')) ?	idx[1] : 0;\n" +
                     "}\n" +
                 "</script></head><body>");
         getServletContext().getRequestDispatcher("/Banner").include(request, response);
@@ -54,16 +55,15 @@ public class WoodCatalogServlet extends HttpServlet {
         //Give the option of checking cart or checking out if cart not empty
         if (cart.getNumberOfItems() > 0) {
             out.println("<p><strong><a href='" +
-                response.encodeURL(contextPath+ "/BookShowCart") +
+                response.encodeURL(contextPath+ "/WoodShowCart") +
                 "'>Check Shopping Cart</a>&nbsp;&nbsp;&nbsp;<a href='" +
-                response.encodeURL(contextPath+ "/BookCashier")+"'>Buy Your Books</a></p></strong>");
+                response.encodeURL(contextPath+ "/WoodCashier")+"'>Buy Your Woods</a></p></strong>");
         }
         // Always prompt the user to buy more -- get and show the catalog
         out.println("<h3>Please choose from our selections:</h3><center><table border='1' summary='layout'>");
         try {
             Collection coll = bookDB.getBooks();
             Iterator i = coll.iterator();
-            String currency = request.getParameter("currency");
             
             String sRMI = "rmi://localhost:1099/currencyexchange";
             String currencyType = "SGD";
@@ -86,11 +86,11 @@ public class WoodCatalogServlet extends HttpServlet {
                 woodId = wood.getId();
                 //Print out info on each book in its own two rows
                 out.println("<tr><td bgcolor='ivory'><a href='" +
-                    response.encodeURL(contextPath+"/BookDetails?Id=" + woodId) + 
+                    response.encodeURL(contextPath+"/WoodDetails?Id=" + woodId) + 
                     "'> <strong>" +wood.getTitle()+"&nbsp;</strong></a></td>" +
-                    "<td bgcolor='ivory' rowspan='2'> "+ currency + "&nbsp;" + wood.getPrice()*exchangeRate +
+                    "<td bgcolor='ivory' rowspan='2'> "+ currencyName + "&nbsp;" + wood.getPrice()*exchangeRate +
                     "&nbsp; </td><td bgcolor='ivory' rowspan='2'><a href='" +
-                    response.encodeURL(contextPath+"/BookCatalog?Id=" + woodId) + 
+                    response.encodeURL(contextPath+"/WoodCatalog?Id=" + woodId) + 
                     "'> &nbsp;Add to Cart&nbsp;</a></td></tr>" +
                     "<tr><td bgcolor='floralwhite'>&nbsp; &nbsp;About: &nbsp;<em>" + wood.getDescription()+ "</td></tr>");
             }

@@ -139,7 +139,7 @@ public class BookDBAO
         } catch (SQLException ex) 
         {
             releaseConnection();
-            throw new NewBookException("Couldn't  Add new wood due to\n"+ex.getMessage());
+            throw new NewBookException("Couldn't add new wood due to\n"+ex.getMessage());
         }
     }
     

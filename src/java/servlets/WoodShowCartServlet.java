@@ -64,11 +64,11 @@ public class WoodShowCartServlet extends HttpServlet {
                 out.println("<tr>" +
                     "<td align='right' bgcolor='white'>" + item.getQuantity() + "</td>" + 
                     "<td bgcolor='#ffffaa'><strong><a href='" +
-                        response.encodeURL(contextPath+"/BookDetails?Id=" + bd.getId()) + "'>" +
+                        response.encodeURL(contextPath+"/WoodDetails?Id=" + bd.getId()) + "'>" +
                         bd.getTitle() + "</a></strong></td>" +
                     "<td bgcolor='#ffffaa' align='right'>$&nbsp;" + bd.getPrice() +"</td>" + 
                     "<td bgcolor='#ffffaa'><strong><a href='" + response.encodeURL(contextPath+
-                        "/BookShowCart?Remove=" + bd.getId()) + "'>Remove Item</a></strong></td></tr>");
+                        "/WoodShowCart?Remove=" + bd.getId()) + "'>Remove Item</a></strong></td></tr>");
             }
 
             // Print the total at the bottom of the table
@@ -79,15 +79,15 @@ public class WoodShowCartServlet extends HttpServlet {
 
             // Where to go and what to do next
             out.println("<p> &nbsp; <p><strong><a href='" +
-                response.encodeURL(contextPath+ "/BookCatalog") +
+                response.encodeURL(contextPath+ "/WoodCatalog") +
                 "'>Continue Shopping</a> &nbsp; &nbsp; &nbsp;<a href='" +
-                response.encodeURL(contextPath+ "/BookCashier") +
+                response.encodeURL(contextPath+ "/WoodCashier") +
                 "'>Check Out</a> &nbsp; &nbsp; &nbsp;" + "<a href='" +
-                response.encodeURL(contextPath+"/BookShowCart?Clear=clear") + 
+                response.encodeURL(contextPath+"/WoodShowCart?Clear=clear") + 
                 "'>Clear Cart</a></strong>");
         } else {// Shopping cart is empty!
             out.println("<font size='+2'>Your cart is empty.</font><br> &nbsp; <br><center><a href='" +
-                response.encodeURL(contextPath+ "/BookCatalog") +"'>Back to the Catalog</a></center>");
+                response.encodeURL(contextPath+ "/WoodCatalog") +"'>Back to the Catalog</a></center>");
         }
         out.println("</body> </html>");
         out.close();

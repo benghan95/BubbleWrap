@@ -49,9 +49,9 @@ public class AdminDeleteServlet extends HttpServlet {
         //Give the option of checking cart or checking out if cart not empty
         if (cart.getNumberOfItems() > 0) {
             out.println("<p><strong><a href='" +
-                response.encodeURL(contextPath+ "/BookShowCart") +
+                response.encodeURL(contextPath+ "/WoodShowCart") +
                 "'>Check Shopping Cart</a>&nbsp;&nbsp;&nbsp;<a href='" +
-                response.encodeURL(contextPath+ "/BookCashier")+"'>Buy Your Books</a></p></strong>");
+                response.encodeURL(contextPath+ "/WoodCashier")+"'>Buy Your Books</a></p></strong>");
         }
         // Always prompt the user to buy more -- get and show the catalog
         out.println("<h3>Please choose book to delete:</h3><center><table border='1' summary='layout'>");

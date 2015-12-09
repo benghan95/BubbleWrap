@@ -4,14 +4,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/CurrencyImpl.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/CurrencyServer.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/BannerServlet.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/BookStoreServlet.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/CurrencyClient.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/Currency.java</file>
-            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/BookCatalogServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/AdminWoodEntryServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/AdminDeleteServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodDetailsServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/database/BookDBAO.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodReceiptServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodStoreServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/AdminServlet.java</file>
             <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/RegistryLister.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/CurrencyImpl.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodCashierServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/web/WEB-INF/web.xml</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/BannerServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/CurrencyClient.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodShowCartServlet.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/Currency.java</file>
+            <file>file:/Users/Beng/GitHub/BubbleWrap/src/java/servlets/WoodCatalogServlet.java</file>
         </group>
     </open-files>
 </project-private>

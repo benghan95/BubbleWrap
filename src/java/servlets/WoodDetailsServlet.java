@@ -34,7 +34,7 @@ public class WoodDetailsServlet extends HttpServlet {
                     "<tr><td>Price</td><td>$&nbsp;"+bd.getPrice()+"</td></tr></table>");
             // Go back to catalog
             out.println("<p> &nbsp; <p><strong><a href='" +
-                response.encodeURL(request.getContextPath() + "/BookCatalog") +
+                response.encodeURL(request.getContextPath() + "/WoodCatalog") +
                 "'>Continue Shopping</a>" );                
             } catch (BookNotFoundException ex) {
                 out.println("<center><h1>Book Not Found</h1></center>");

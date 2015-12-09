@@ -16,12 +16,14 @@ public class BannerServlet extends HttpServlet {
     private void output(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         String path= request.getContextPath();
+        String contextPath = request.getContextPath();
         PrintWriter out = response.getWriter();
         out.println(
             "<table border='1' width='100%'>"+
               "<tr><th width='100'><img src='"+response.encodeURL(path +"/images/logo.jpg") +"'/></th>"+
-                     "<th>BUBBLEWRAP.COM</th>"+
-                     "<th width='100'><select name='currency'>\n" +
+                     "<th><a href=\'" +response.encodeURL(contextPath+ "/") +
+                "'>BUBBLEWRAP.COM</a></th>"+
+                     "<th width='100'><select id='currency' name='currency' onchange='options[selectedIndex].value&&self.location.reload(true)'>\n" +
                         "  <option value='USD' selected>USD</option>\n" +
                         "  <option value='MYR'>MYR</option>\n" +
                         "  <option value='AUD'>AUD</option>\n" +

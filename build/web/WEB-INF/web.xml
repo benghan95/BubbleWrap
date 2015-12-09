@@ -18,24 +18,24 @@
         <servlet-class>servlets.BannerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookDetailsServlet</servlet-name>
+        <servlet-name>WoodDetailsServlet</servlet-name>
         <servlet-class>servlets.WoodDetailsServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookCatalogServlet</servlet-name>
+        <servlet-name>WoodCatalogServlet</servlet-name>
         <servlet-class>servlets.WoodCatalogServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookShowCartServlet</servlet-name>
+        <servlet-name>WoodShowCartServlet</servlet-name>
         <servlet-class>servlets.WoodShowCartServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookCashierServlet</servlet-name>
-        <servlet-class>servlets.BookCashierServlet</servlet-class>
+        <servlet-name>WoodCashierServlet</servlet-name>
+        <servlet-class>servlets.WoodCashierServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>BookReceiptServlet</servlet-name>
-        <servlet-class>servlets.BookReceiptServlet</servlet-class>
+        <servlet-name>WoodReceiptServlet</servlet-name>
+        <servlet-class>servlets.WoodReceiptServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminServlet</servlet-name>
@@ -46,8 +46,8 @@
         <servlet-class>servlets.AdminDeleteServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>AdminBookEntryServlet</servlet-name>
-        <servlet-class>servlets.AdminBookEntryServlet</servlet-class>
+        <servlet-name>AdminWoodEntryServlet</servlet-name>
+        <servlet-class>servlets.AdminWoodEntryServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AdminUpdateServlet</servlet-name>
@@ -66,23 +66,7 @@
         <url-pattern>/Banner</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>BookDetailsServlet</servlet-name>
-        <url-pattern>/BookDetails</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookCatalogServlet</servlet-name>
-        <url-pattern>/BookCatalog</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookShowCartServlet</servlet-name>
-        <url-pattern>/BookShowCart</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookCashierServlet</servlet-name>
-        <url-pattern>/BookCashier</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>BookReceiptServlet</servlet-name>
+        <servlet-name>WoodReceiptServlet</servlet-name>
         <url-pattern>/BookReceipt</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -92,10 +76,6 @@
     <servlet-mapping>
         <servlet-name>AdminDeleteServlet</servlet-name>
         <url-pattern>/AdminDelete</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminBookEntryServlet</servlet-name>
-        <url-pattern>/AdminBookEntry</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminUpdateServlet</servlet-name>
@@ -113,6 +93,26 @@
         <servlet-name>LoadImageServlet</servlet-name>
         <url-pattern>*.jpg</url-pattern>
         <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminWoodEntryServlet</servlet-name>
+        <url-pattern>/AdminWoodEntry</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WoodCashierServlet</servlet-name>
+        <url-pattern>/WoodCashier</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WoodShowCartServlet</servlet-name>
+        <url-pattern>/WoodShowCart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WoodDetailsServlet</servlet-name>
+        <url-pattern>/WoodDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WoodCatalogServlet</servlet-name>
+        <url-pattern>/WoodCatalog</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>25</session-timeout>

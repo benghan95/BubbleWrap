@@ -6,7 +6,7 @@ import database.*;
 //import cart.*;
 //import exception.*;
 
-public class AdminBookEntryServlet extends HttpServlet {
+public class AdminWoodEntryServlet extends HttpServlet {
     private BookDBAO bookDB;
     @Override
     public void init() throws ServletException 

@@ -21,7 +21,7 @@ public class AdminServlet extends HttpServlet {
             out.println("<p><strong><a href='"+contextPath+ "/logout.jsp'>Log out</a></strong>");
             out.println("<p><h1>Administrator Options:</h1>");
             out.println("<p><strong><a href='"+contextPath+ "/AdminDelete'>Delete Stock</a></strong>");
-            out.println("<p><strong><a href='"+contextPath+ "/AdminBookEntry?Mode=New'>Add New Stock</a></strong>");
+            out.println("<p><strong><a href='"+contextPath+ "/AdminWoodEntry?Mode=New'>Add New Stock</a></strong>");
             out.println("<p><strong><a href='"+contextPath+ "/AdminUpdate'>Update Stock</a></strong>");
             out.println("</body></html>");
         } finally { 
